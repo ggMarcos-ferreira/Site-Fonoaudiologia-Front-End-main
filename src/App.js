@@ -25,7 +25,7 @@ function App() {
         <Route path="/paciente" element={<Paciente />} /> 
         <Route path="/Fonoaudiologo" element={<Fonoaudiologo />} /> 
       </Routes>
-      <Footer /> {/* Footer adicionado ao final */}
+      
     </>
   );
 }

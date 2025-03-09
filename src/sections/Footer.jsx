@@ -14,7 +14,7 @@ const Card = ({ title, content }) => {
 };
 
 const Carousel = ({ children }) => {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(1);
   const count = React.Children.count(children);
 
   return (
@@ -60,28 +60,23 @@ const Carousel = ({ children }) => {
 
 const Footer = () => {
   return (
-    <footer className="footer" style={footerStyle}>
-      <Carousel>
-        {[...new Array(CARDS)].map((_, i) => (
-          <Card
-            key={i}
-            title={`Card ${i + 1}`}
-            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          />
-        ))}
-      </Carousel>
-    </footer>
+    <div className="flex items-center justify-center min-h-screen bg-gray-900">
+      <footer className="footer flex flex-col items-center justify-center w-full">
+        <Carousel>
+          {[...new Array(CARDS)].map((_, i) => (
+            <Card
+              key={i}
+              title={`Card ${i + 1}`}
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            />
+          ))}
+        </Carousel>
+      </footer>
+    </div>
   );
 };
 
 // Estilos Inline
-const footerStyle = {
-  backgroundColor: "#1F2937", // Preto
-  color: "#FFFFFF", // Branco
-  padding: "20px 0",
-  textAlign: "center",
-};
-
 const carouselStyle = {
   position: "relative",
   width: "23rem",
@@ -95,9 +90,6 @@ const cardContainerStyle = {
   position: "absolute",
   width: "100%",
   height: "100%",
-  transform:
-    "rotateY(calc(var(--offset) * 50deg)) scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -5rem))",
-  filter: "blur(calc(var(--abs-offset) * 1rem))",
   transition: "all 0.3s ease-out",
 };
 
@@ -105,10 +97,10 @@ const cardStyle = {
   width: "100%",
   height: "100%",
   padding: "2rem",
-  backgroundColor: "hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%))",
+  backgroundColor: "#6B46C1",
   borderRadius: "1rem",
   textAlign: "justify",
-  color: "#9CA3AF", // Cinza
+  color: "#9CA3AF",
   transition: "all 0.3s ease-out",
 };
 
@@ -117,7 +109,7 @@ const cardTitleStyle = {
   fontSize: "2rem",
   fontWeight: "bold",
   margin: "0 0 0.7em",
-  color: "#1F2937", // Preto
+  color: "#1F2937",
 };
 
 const cardContentStyle = {

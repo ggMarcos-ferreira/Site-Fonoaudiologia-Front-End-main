@@ -1,6 +1,6 @@
-import React from "react";
 import image from "../img/image 33.png";
 import secondImage from "../img/Group 15768.png";
+import GooeyButton from "../components/GooeyButton"; // Importe o GooeyButton
 
 function Main() {
   return (
@@ -35,18 +35,18 @@ function Main() {
         </section>
 
         {/* Seção: Fonoaudiólogo */}
-        <div className="mt-80 flex mb-10"> 
-          <div className="flex-shrink-0 w-[500px] h-[500px] mr-4"> 
+        <div className="flex flex-col md:flex-row items-center mb-10">
+          <div className="flex-shrink-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] mb-6 md:mb-0 md:mr-4">
             <img 
               src={secondImage} 
               alt="Tratamento" 
               className="object-contain w-full h-full"
             />
           </div>
-          <div className="text-left"> 
+          <div className="text-left max-w-lg">
             <h1 className="text-2xl font-bold mb-2">O que é um Fonoaudiólogo afinal?</h1>
             <h2 className="text-lg text-gray-700">
-              Um fonoaudiólogo é um profissional de saúde especializado na prevenção, diagnóstico e tratamento de distúrbios relacionados à comunicação, audição, voz, linguagem, fala, e deglutição. Eles trabalham com pessoas de todas as idades, desde bebês até idosos, abordando uma ampla gama de condições que podem afetar a capacidade de falar, ouvir, compreender, e interagir de forma eficaz.
+              Um fonoaudiólogo é um profissional de saúde especializado na prevenção, diagnóstico e tratamento de distúrbios relacionados à comunicação, audição, voz, linguagem, fala e deglutição. Eles trabalham com pessoas de todas as idades, desde bebês até idosos, abordando uma ampla gama de condições que podem afetar a capacidade de falar, ouvir, compreender e interagir de forma eficaz.
             </h2>
           </div>
         </div>
@@ -54,70 +54,47 @@ function Main() {
         {/* Seção: Fonoaudiologia */}
         <section className="mb-10">
           <h1 className="text-3xl font-bold mb-6">
-            Aqui vc aprenderá muito mais sobre <span className="text-blue-600">a Fonoaudiologia!</span>
+            Aqui você aprenderá muito mais sobre <span className="text-blue-600">a Fonoaudiologia!</span>
           </h1>
           <p className="text-lg text-gray-700">
-            <strong>Além</strong> disso oferecemos um espaço informativo e acessível
+            <strong>Além</strong> disso, oferecemos um espaço informativo e acessível
             para pessoas que buscam melhorar sua saúde!
           </p>
-          <div className="flex justify-center mt-10 gap-8">
+          <div className="flex flex-col md:flex-row justify-center mt-10 gap-8">
             <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs">
               <h2 className="text-xl text-blue-600 font-bold mb-2">Sinais de Apraxia na Infância</h2>
               <p className="text-gray-700">
                 A apraxia é um distúrbio neurológico que afeta a capacidade de planejar e
                 executar os movimentos necessários para falar. Aqui, explicamos os sinais
-                comuns em crianças, como dificuldade em formar sons ou palavras longas, e
-                destacamos a importância do diagnóstico precoce.
+                comuns em crianças e destacamos a importância do diagnóstico precoce.
               </p>
             </div>
             <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs">
               <h2 className="text-xl text-blue-600 font-bold mb-2">Distúrbios da Fala</h2>
               <p className="text-gray-700">
-                A dicção é a forma como pronunciamos as palavras e pode ser afetada por
-                diversos fatores, como ansiedade ou hábitos de fala. Neste artigo,
-                abordamos exercícios simples e práticos, como repetir palavras lentamente ou
-                gravar sua fala para identificar possíveis melhorias.
+                A dicção pode ser afetada por diversos fatores, como ansiedade ou hábitos de fala. 
+                Neste artigo, abordamos exercícios simples para melhorar sua fala.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Seção: Audição */}
-        <section className="mt-10 text-left">
-          <h2 className="text-2xl font-bold mb-4">Audição</h2>
-          <h3 className="text-lg text-gray-700 mb-2">Como Identificar Perda Auditiva</h3>
-          <p className="text-gray-700">
-            A perda auditiva pode ser sutil no início, mas identificar sinais como
-            dificuldade em entender conversas ou aumentar o volume da TV pode fazer toda a
-            diferença. Leia este artigo para conhecer os sinais e descobrir como agir.
-          </p>
+        {/* Novos Cards */}
+        <section className="flex flex-col md:flex-row justify-center mt-10 gap-8">
+          <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs">
+            <h2 className="text-xl text-blue-600 font-bold mb-2">Exercícios para Melhorar a Fala</h2>
+            <p className="text-gray-700">Veja exercícios práticos para melhorar sua dicção e fluência.</p>
+          </a>
+          <a href="https://www.youtube.com/watch?v=video2" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs">
+            <h2 className="text-xl text-blue-600 font-bold mb-2">Dicas para Cuidar da Voz</h2>
+            <p className="text-gray-700">Aprenda técnicas para manter sua voz saudável.</p>
+          </a>
+          <a href="https://www.youtube.com/watch?v=video3" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs">
+            <h2 className="text-xl text-blue-600 font-bold mb-2">Como Identificar Problemas Auditivos</h2>
+            <p className="text-gray-700">Saiba como reconhecer sinais de perda auditiva.</p>
+          </a>
         </section>
       </div>
-
-        {/* Seção: Audiometria */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-bold mb-4">
-            A Importância do Teste de Audiometria
-          </h2>
-          <p className="text-lg text-gray-700">
-            A audiometria é fundamental para avaliar a saúde auditiva. Este texto explica o que esperar durante o teste, quem deve realizá-lo regularmente e como ele pode prevenir problemas mais graves no futuro.
-          </p>
-        </section>
-
-        {/* Seção: Conexão com Profissionais */}
-        <section className="mb-10">
-          <h2 className="text-xl font-bold text-blue-600">
-            Te ajudamos a se conectar com <span className="font-extrabold">Profissionais Especializados!</span>
-          </h2>
-        </section>
-
-        {/* Seção: Quando Procurar um Fonoaudiólogo */}
-        <section className="bg-black text-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-          <h2 className="text-2xl font-bold mb-4">Quando Procurar um Fonoaudiólogo?</h2>
-          <p className="text-lg">
-            Nem sempre é fácil identificar atrasos no desenvolvimento da fala. Este artigo ajuda pais e responsáveis a reconhecer sinais de alerta e saber quando buscar a ajuda de um fonoaudiólogo para avaliação profissional.
-          </p>
-        </section>
     </main>
   );
 }
