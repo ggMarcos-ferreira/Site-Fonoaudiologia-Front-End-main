@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import axios from "axios"; // Certificando-se de que axios está importado
+import { GoogleOAuthProvider, GoogleLogin, handleGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 function Login() {
-  // Função de login com Google
-  const handleGoogleLogin = async (response) => {
-    console.log("Google Login Response:", response);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validação simples
+    if (!email || !password) {
+      setError("Por favor, preencha todos os campos.");
+      return;
+    }
 
     try {
-      const { credential } = response;
-      // Enviar o token para seu backend para autenticar o usuário com o Google
-      const res = await axios.post("http://127.0.0.1:5000/api/fonoaudio/google-login", {
-        token: credential,
+      const response = await axios.post("http://127.0.0.1:5000/api/login", {
+        email,
+        password,
       });
-      console.log(res);
+      console.log("Login bem-sucedido:", response.data);
+      // Redirecionar para a página de dashboard ou outra página
     } catch (error) {
-      console.error("Erro ao autenticar com Google", error);
+      setError("E-mail ou senha incorretos.");
+      console.error("Erro ao fazer login:", error);
     }
   };
 
@@ -32,10 +42,11 @@ function Login() {
                 Insira os seus dados pessoais para obter acesso ao site novamente!
               </p>
               <div className="py-5">
-                <Link to="/login-fono">
-                  <a className="bg-white font-bold rounded-full px-5 text-[#0B71AB] w-full py-2 hover:bg-gray-100">
-                    Sou Fonoaudiólogo
-                  </a>
+                <Link
+                  to="/login-fono"
+                  className="bg-white font-bold rounded-full px-5 text-[#0B71AB] w-full py-2 hover:bg-gray-100 text-center"
+                >
+                  Sou Fonoaudiólogo
                 </Link>
               </div>
               <img
@@ -50,7 +61,9 @@ function Login() {
               <h2 className="text-3xl text-center pt-40 font-semibold mb-6">Entrar</h2>
               <p className="text-center">Entre com sua conta</p>
 
-              <form>
+              {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+              <form onSubmit={handleSubmit}>
                 {/* Campo de e-mail */}
                 <div className="mb-4">
                   <label className="block text-gray-700">E-mail</label>
@@ -59,6 +72,8 @@ function Login() {
                       type="email"
                       placeholder="Digite seu e-mail"
                       className="w-full focus:outline-none"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -71,21 +86,26 @@ function Login() {
                       type="password"
                       placeholder="Digite uma senha"
                       className="w-full focus:outline-none"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                 </div>
 
                 {/* Botão de login */}
-                <button className="bg-[#0B71AB] text-white w-full py-2 rounded-full hover:bg-[#076A94]">
+                <button
+                  type="submit"
+                  className="bg-[#0B71AB] text-white w-full py-2 rounded-full hover:bg-[#076A94]"
+                >
                   Entrar
                 </button>
 
                 {/* Link para criar uma conta */}
                 <p className="text-center text-gray-600 mt-4">
                   Ainda não tem cadastro?{" "}
-                  <a href="#" className="text-[#0B71AB] hover:underline">
+                  <Link to="/signup" className="text-[#0B71AB] hover:underline">
                     Crie uma conta
-                  </a>
+                  </Link>
                 </p>
               </form>
 
