@@ -46,7 +46,7 @@ function Navbar() {
             )}
           </div>
           <Link to="/sobre" className="mr-5 hover:text-gray-900">Sobre</Link>
-          <Link to="/contato" className="mr-5 hover:text-gray-900">Contato</Link>
+          
         </nav>
 
         <div className="flex items-center">

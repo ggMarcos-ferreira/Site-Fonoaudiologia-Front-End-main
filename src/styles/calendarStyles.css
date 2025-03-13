@@ -1,0 +1,147 @@
+/* Container principal para o calendário */
+.calendar-container {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar à esquerda */
+.calendar-sidebar {
+  width: 30%;
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Estilo para o número da data */
+.date-number {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Nome do dia */
+.day-name {
+  font-size: 1.5rem;
+  margin-top: -10px;
+}
+
+/* Seção de eventos */
+.events-section {
+  margin-top: 20px;
+}
+
+/* Botão de criar evento */
+.create-event-btn {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background: #fff;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.create-event-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Container principal do calendário */
+.calendar-main {
+  width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Estilos do calendário customizado */
+.custom-calendar {
+  width: 100%;
+  border: none;
+}
+
+/* Ponto de evento no calendário */
+.event-dot {
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  margin: auto;
+}
+
+/* Formulário para agendamento de consultas */
+.appointment-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+.appointment-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.appointment-form button {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.appointment-form button:hover {
+  background: #0056b3;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .calendar-container {
+    flex-direction: column; /* Empilhar os itens para dispositivos menores */
+  }
+
+  .calendar-sidebar,
+  .calendar-main {
+    width: 100%; /* Fazer as seções ocuparem toda a largura disponível */
+  }
+
+  .date-number {
+    font-size: 2.5rem; /* Ajustar o tamanho da data para telas menores */
+  }
+
+  .day-name {
+    font-size: 1.2rem; /* Ajustar o nome do dia para telas menores */
+  }
+
+  .create-event-btn {
+    width: 100%; /* Botão ocupar toda a largura */
+  }
+
+  .appointment-form {
+    flex-direction: column; /* Alinhar os campos do formulário verticalmente em telas pequenas */
+  }
+
+  .appointment-form button {
+    margin-left: 0; /* Remover o espaço à esquerda do botão em telas pequenas */
+    margin-top: 10px;
+    width: 100%; /* Botão ocupar toda a largura em telas pequenas */
+  }
+}
+
+@media (max-width: 480px) {
+  .date-number {
+    font-size: 2rem; /* Ajustar ainda mais o tamanho da data para telas muito pequenas */
+  }
+
+  .day-name {
+    font-size: 1rem; /* Ajustar o nome do dia para telas muito pequenas */
+  }
+}

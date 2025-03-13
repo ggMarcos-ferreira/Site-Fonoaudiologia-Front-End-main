@@ -19,22 +19,21 @@ function Login() {
       console.error("Erro ao autenticar com Google", error);
     }
   };
- const handleCadastro()=> async {
-  try {
-    const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-      title: 'Meu Post',
-      body: 'Conteúdo do post',
-      userId: 1
-    });
 
-    console.log('Resposta:', response.data);
-  } catch (error) {
-    console.error('Erro ao enviar os dados:', error);
-  }
-};
+  // Função de cadastro (exemplo)
+  const handleCadastro = async () => {
+    try {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+        title: 'Meu Post',
+        body: 'Conteúdo do post',
+        userId: 1
+      });
 
- }
-
+      console.log('Resposta:', response.data);
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
+    }
+  };
 
   return (
     // Certificando-se de envolver o código com o GoogleOAuthProvider
@@ -68,6 +67,18 @@ function Login() {
               <p className="text-center">Entre com sua conta</p>
 
               <form>
+                {/* Campo de nome */}
+                <div className="mb-4">
+                  <label className="block text-gray-700">Nome</label>
+                  <div className="flex items-center border border-gray-300 rounded-lg p-2">
+                    <input
+                      type="text"
+                      placeholder="Digite seu nome"
+                      className="w-full focus:outline-none"
+                    />
+                  </div>
+                </div>
+
                 {/* Campo de e-mail */}
                 <div className="mb-4">
                   <label className="block text-gray-700">E-mail</label>
@@ -76,6 +87,19 @@ function Login() {
                       type="email"
                       placeholder="Digite seu e-mail"
                       className="w-full focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Campo de telefone */}
+                <div className="mb-4">
+                  <label className="block text-gray-700">Telefone</label>
+                  <div className="flex items-center border border-gray-300 rounded-lg p-2">
+                    <input
+                      type="tel"
+                      placeholder="Digite seu telefone"
+                      className="w-full focus:outline-none"
+                      pattern="(\([0-9]{2}\))\s([0-9]{5})\-([0-9]{4})" // Exemplo de máscara para telefone
                     />
                   </div>
                 </div>
@@ -92,16 +116,16 @@ function Login() {
                   </div>
                 </div>
 
-                {/* Botão de login */}
+                {/* Botão de cadastro */}
                 <button className="bg-[#0B71AB] text-white w-full py-2 rounded-full">
-                  Entrar
+                  Cadastrar
                 </button>
 
                 {/* Link para criar uma conta */}
                 <p className="text-center text-gray-600 mt-4">
-                  Ainda não tem cadastro?{" "}
+                  Já tem cadastro?{" "}
                   <a href="#" className="text-[#0B71AB] hover:underline">
-                    Crie uma conta
+                    Faça login
                   </a>
                 </p>
               </form>
